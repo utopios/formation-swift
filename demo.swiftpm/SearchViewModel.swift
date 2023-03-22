@@ -13,21 +13,38 @@ class SearchViewModel : ObservableObject {
     
     private let _disposeBag = DisposeBag()
     let searchText = BehaviorRelay<String>(value: "")
-    var allUsers:[User] = []
-    let searchUsers: PublishSubject<[User]> = PublishSubject()
+    
+    var allUsers = BehaviorRelay<[User]>(value: [])
+    var searchUsers: PublishSubject<[User]> = PublishSubject()
+    
     init() {
-        self.allUsers = [
+        self.allUsers.accept([
             User(name: "toto"),
             User(name: "tata")
-        ]
-        searchText.distinctUntilChanged().debounce(.milliseconds(300), scheduler: MainScheduler.instance).map{
-            c in self.allUsers.filter{
-                u in u.name.lowercased().contains(c.lowercased())
+        ])
+        searchText.throttle(.microseconds(300), scheduler: MainScheduler.instance).distinctUntilChanged().map{
+            [unowned self] q in
+            if(q == ""){
+                return self.allUsers.value
+            }else {
+                return self.allUsers.value.filter {
+                    f in f.name.contains(q.lowercased())
+                }
             }
-        }.bind{a in self.searchUsers.onNext(a)}.disposed(by: _disposeBag)
+            
+        }.bind{
+            [unowned self] f in self.searchUsers.onNext(f)
+        }.disposed(by: _disposeBag)
+        
     }
     
-    
+    func removeUser(_ id:UUID) {
+        var users = self.allUsers.value
+                if let index = users.firstIndex(where: { $0.id == id }) {
+                    users.remove(at: index)
+                    self.allUsers.accept(users)
+                }
+    }
     
     
 }

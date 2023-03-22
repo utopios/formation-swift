@@ -14,7 +14,18 @@ struct ContentView: View {
                 val in _viewModel.updateSearchText(val)
             }
             List(_viewModel.result){
-                u in Text(u.name)
+                u in
+                HStack {
+                    Text(u.name)
+                    Button(action:{
+                        _viewModel.deleteUser(u.id)
+                    })
+                    {
+                        Text("Delete")
+                        
+                    }
+                }
+                
             }
         }
     }
@@ -35,15 +46,23 @@ private extension ContentView {
         }
         
         init(searchViewModel:SearchViewModel) {
-            self.searchViewModel = searchViewModel
             
+            self.searchViewModel = searchViewModel
+            self.searchViewModel.allUsers.observeOn(MainScheduler.instance).bind(to: _result)
             self.searchViewModel.searchUsers.observeOn(MainScheduler.instance).bind(to: _result)
             
-            self._result.subscribe(onNext: {_ in self.objectWillChange.send()})
+            self._result.subscribe(onNext: {
+                _ in self.objectWillChange.send()
+                
+            })
         }
         
         func updateSearchText(_ newText:String) {
             self.searchViewModel.searchText.accept(newText)
+        }
+        
+        func deleteUser(_ userId: UUID) {
+            self.searchViewModel.removeUser(userId)
         }
     }
 }
