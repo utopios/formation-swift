@@ -20,9 +20,14 @@ class ItemListViewModel: ObservableObject {
         }.store(in: &_cancellables)
     }
     
-    func addItem(name: String) {
+    func addItem(named name: String) {
         let item = Item(name: name)
         allItems.append(item)
+        _performSearch(searchText)
+    }
+    
+    func removeItem(at offsets: IndexSet) {
+        allItems.remove(atOffsets:offsets)
         _performSearch(searchText)
     }
     

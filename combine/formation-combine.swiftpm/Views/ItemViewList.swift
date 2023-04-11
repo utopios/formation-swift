@@ -19,11 +19,12 @@ struct ItemViewList: View {
         VStack {
             HStack{
                 TextField("Ajouter un item", text:$_newItemVal, onCommit: {
-                    viewModel.addItem(name: _newItemVal)
+                    viewModel.addItem(named: _newItemVal)
                     _newItemVal = ""
                 }).textFieldStyle(RoundedBorderTextFieldStyle())
                 Button(action: {
-                    viewModel.addItem(name: _newItemVal)
+                    viewModel.addItem(named: _newItemVal)
+                    _newItemVal = ""
                 }){
                     Image(systemName: "plus.circle.fill").foregroundColor(.blue).imageScale(.large)
                 }
@@ -34,7 +35,7 @@ struct ItemViewList: View {
             List {
                 ForEach(viewModel.items) {
                     item in Text(item.name)
-                }
+                }.onDelete(perform: viewModel.removeItem)
             }
         }
     }
