@@ -28,7 +28,7 @@ class MainContentViewModel : MainContentFlowStateProtocol, MainContentViewModelP
     }
     
     func secondAction() {
-        activeLink = .secondLink
+        activeLink = .sheetLink(item: "toto")
     }
     
     func thirdAction() {
