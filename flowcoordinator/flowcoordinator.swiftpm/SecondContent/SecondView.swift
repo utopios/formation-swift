@@ -9,9 +9,14 @@ import Foundation
 import SwiftUI
 
 struct SecondView : View {
+    var data:String?
+    
+    init(_ d:String?) {
+        data = d
+    }
     var body: some View {
         VStack {
-            Text("Second View")
+            Text(data ?? "")
         }
     }
 }

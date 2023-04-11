@@ -24,7 +24,7 @@ class MainContentViewModel : MainContentFlowStateProtocol, MainContentViewModelP
     @Published var activeLink: ContentLink?
     
     func firstAction() {
-        activeLink = .firstLink
+        activeLink = .firstLinkWithArg(arg: "coucou")
     }
     
     func secondAction() {

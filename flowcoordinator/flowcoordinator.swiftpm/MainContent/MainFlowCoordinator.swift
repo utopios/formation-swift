@@ -16,17 +16,20 @@ protocol MainContentFlowStateProtocol : ObservableObject {
 enum ContentLink: Hashable, Identifiable {
     var id: String {
         switch self {
-        case .firstLink:
+        case .firstLink, .firstLinkWithArg:
             return "first"
         case .secondLink:
             return "second"
         case .thirdLink:
             return "third"
+            
         }
     }
     
     var navigationLink : ContentLink {
         switch self {
+        case .firstLinkWithArg:
+            return .firstLink
         default:
             return self
         }
@@ -35,6 +38,7 @@ enum ContentLink: Hashable, Identifiable {
     case firstLink
     case secondLink
     case thirdLink
+    case firstLinkWithArg(arg:String)
 }
 
 struct MainFlowCoordinator<State: MainContentFlowStateProtocol, Content:View>:View {
@@ -59,7 +63,11 @@ struct MainFlowCoordinator<State: MainContentFlowStateProtocol, Content:View>:Vi
     }
     
     private func firstDestination() -> some View {
-        let view = SecondView()
+        var data:String?
+        if case let .firstLinkWithArg(arg) = state.activeLink {
+            data = arg
+        }
+        let view = SecondView(data)
         return view
     }
 }
