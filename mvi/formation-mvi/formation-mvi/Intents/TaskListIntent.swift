@@ -18,6 +18,8 @@ struct TaskListState {
 enum TaskListEvent {
     case addTask(Task)
     case deleteTask(UUID)
+    case toggleFavoris(UUID)
+    case updateTask(Task)
 }
 
 //Intention
@@ -37,6 +39,14 @@ class TaskListIntent : ObservableObject {
             state.tasks.append(task)
         case .deleteTask(let taskId):
             state.tasks.removeAll{$0.id == taskId}
+        case .toggleFavoris(let taskId):
+            if let index = state.tasks.firstIndex(where: {$0.id == taskId}) {
+                state.tasks[index].isFavoris.toggle()
+            }
+        case .updateTask(let task):
+            if let index = state.tasks.firstIndex(where: {$0.id == task.id}) {
+                state.tasks[index] = task
+            }
         }
         
     }

@@ -16,9 +16,15 @@ struct TaskListView: View {
         NavigationView {
             List {
                 ForEach(intent.state.tasks) {
-                    task in HStack{
-                        Text(task.title)
-                        Spacer()
+                    task in
+                    NavigationLink(destination: TaskDetailView(intent: intent, task: task)) {
+                        HStack{
+                            Text(task.title)
+                            Spacer()
+                            if task.isFavoris {
+                                Image(systemName: "star.fill").foregroundColor(.red)
+                            }
+                        }
                     }
                 }.onDelete(perform: deleteTask)
             }

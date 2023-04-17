@@ -18,6 +18,7 @@
 		7A06D2D229EDB37000ADF9CC /* TaskListIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A06D2D129EDB37000ADF9CC /* TaskListIntent.swift */; };
 		7A06D2D429EDB4B800ADF9CC /* TaskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A06D2D329EDB4B800ADF9CC /* TaskListView.swift */; };
 		7A06D2D629EDB8FE00ADF9CC /* TaskAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A06D2D529EDB8FE00ADF9CC /* TaskAddView.swift */; };
+		7A06D2D829EDBD4000ADF9CC /* TaskDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A06D2D729EDBD4000ADF9CC /* TaskDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		7A06D2D129EDB37000ADF9CC /* TaskListIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListIntent.swift; sourceTree = "<group>"; };
 		7A06D2D329EDB4B800ADF9CC /* TaskListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListView.swift; sourceTree = "<group>"; };
 		7A06D2D529EDB8FE00ADF9CC /* TaskAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskAddView.swift; sourceTree = "<group>"; };
+		7A06D2D729EDBD4000ADF9CC /* TaskDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +161,7 @@
 			children = (
 				7A06D2D329EDB4B800ADF9CC /* TaskListView.swift */,
 				7A06D2D529EDB8FE00ADF9CC /* TaskAddView.swift */,
+				7A06D2D729EDBD4000ADF9CC /* TaskDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A06D2D829EDBD4000ADF9CC /* TaskDetailView.swift in Sources */,
 				7A06D2D229EDB37000ADF9CC /* TaskListIntent.swift in Sources */,
 				7A06D2D629EDB8FE00ADF9CC /* TaskAddView.swift in Sources */,
 				7A06D2A429EDB23B00ADF9CC /* ContentView.swift in Sources */,
