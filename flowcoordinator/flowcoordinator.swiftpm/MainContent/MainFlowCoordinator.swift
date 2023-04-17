@@ -119,6 +119,7 @@ struct MainFlowCoordinator<State: MainContentFlowStateProtocol, Content:View>:Vi
 }
 
 struct SheetView:View {
+    @Environment(\.presentationMode) var presentationMode
     var data:String
     init(_ d:String) {
         data = d
@@ -126,6 +127,11 @@ struct SheetView:View {
     var body: some View{
         VStack {
             Text(data)
+            Button(action: {
+                presentationMode.wrappedValue.dismiss()
+            }){
+                Text("Close")
+            }
         }
     }
 }
