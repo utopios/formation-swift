@@ -19,6 +19,7 @@ struct MainContentView<VM: MainContentViewModelProtocol & MainContentFlowStatePr
             Button("First View", action: viewModel.firstAction)
             Button("second View", action: viewModel.secondAction)
             Button("third View", action: viewModel.thirdAction)
+            Button("Go To Tab 2", action: viewModel.goToSecondTabAction)
         }
     }
 }

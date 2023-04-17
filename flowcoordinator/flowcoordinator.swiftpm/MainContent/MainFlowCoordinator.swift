@@ -11,6 +11,7 @@ import SwiftUI
 
 protocol MainContentFlowStateProtocol : ObservableObject {
     var activeLink: ContentLink? {get set}
+    var activeTab: ContentLink {get set}
     
 }
 
@@ -23,6 +24,10 @@ enum ContentLink: Hashable, Identifiable {
             return "second"
         case .thirdLink:
             return "third"
+        case .tab1:
+            return "tab1"
+        case .tab2:
+            return "tab2"
         case let .sheetLink(item):
             return item
             
@@ -52,6 +57,8 @@ enum ContentLink: Hashable, Identifiable {
     case thirdLink
     case firstLinkWithArg(arg:String)
     case sheetLink(item: String)
+    case tab1
+    case tab2
 }
 
 struct MainFlowCoordinator<State: MainContentFlowStateProtocol, Content:View>:View {
@@ -66,12 +73,26 @@ struct MainFlowCoordinator<State: MainContentFlowStateProtocol, Content:View>:Vi
         $state.activeLink.map(get: {$0?.sheetItem}, set: {$0})
     }
     var body: some View {
-        NavigationView {
-            VStack {
-                content().sheet(item: sheetItem, content:sheetContent)
-                navigationLinks
-            }
+        TabView(selection: $state.activeTab) {
+            NavigationView {
+                VStack {
+                    content().sheet(item: sheetItem, content:sheetContent)
+                    navigationLinks
+                }
+            }.tabItem {
+                Text("Tab 1")
+            }.tag(ContentLink.tab1)
+            NavigationView {
+                VStack {
+                    Text("Content of tab 2")
+                    navigationLinks
+                }
+                
+            }.tabItem {
+                Text("Tab 2")
+            }.tag(ContentLink.tab2)
         }
+        
     }
     
     @ViewBuilder private var navigationLinks: some View {
