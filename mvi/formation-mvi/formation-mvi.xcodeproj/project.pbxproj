@@ -17,6 +17,7 @@
 		7A06D2D029EDB2FF00ADF9CC /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A06D2CF29EDB2FF00ADF9CC /* Task.swift */; };
 		7A06D2D229EDB37000ADF9CC /* TaskListIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A06D2D129EDB37000ADF9CC /* TaskListIntent.swift */; };
 		7A06D2D429EDB4B800ADF9CC /* TaskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A06D2D329EDB4B800ADF9CC /* TaskListView.swift */; };
+		7A06D2D629EDB8FE00ADF9CC /* TaskAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A06D2D529EDB8FE00ADF9CC /* TaskAddView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		7A06D2CF29EDB2FF00ADF9CC /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		7A06D2D129EDB37000ADF9CC /* TaskListIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListIntent.swift; sourceTree = "<group>"; };
 		7A06D2D329EDB4B800ADF9CC /* TaskListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListView.swift; sourceTree = "<group>"; };
+		7A06D2D529EDB8FE00ADF9CC /* TaskAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskAddView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				7A06D2D329EDB4B800ADF9CC /* TaskListView.swift */,
+				7A06D2D529EDB8FE00ADF9CC /* TaskAddView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A06D2D229EDB37000ADF9CC /* TaskListIntent.swift in Sources */,
+				7A06D2D629EDB8FE00ADF9CC /* TaskAddView.swift in Sources */,
 				7A06D2A429EDB23B00ADF9CC /* ContentView.swift in Sources */,
 				7A06D2D429EDB4B800ADF9CC /* TaskListView.swift in Sources */,
 				7A06D2D029EDB2FF00ADF9CC /* Task.swift in Sources */,

@@ -11,8 +11,9 @@ import Combine
 
 struct TaskListView: View {
     @StateObject var intent: TaskListIntent
+    @State var isModalPresented = false
     var body: some View {
-        VStack {
+        NavigationView {
             List {
                 ForEach(intent.state.tasks) {
                     task in HStack{
@@ -20,6 +21,16 @@ struct TaskListView: View {
                         Spacer()
                     }
                 }.onDelete(perform: deleteTask)
+            }
+            .navigationBarTitle("Tasks")
+            .navigationBarItems(trailing: Button(action: {
+                isModalPresented = true
+            }, label: {
+                Image(systemName: "plus")
+            })).sheet(isPresented: $isModalPresented) {
+                VStack{
+                    TaskAddView(intent: intent)
+                }
             }
         }
     }
