@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "4F833134-24D8-49BE-AF61-36BE42341E47"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F3318B5E-C5B7-4383-AF2A-ACB9FAA96862"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DemoTest/ViewModel/MorpionModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "setCell(n:c:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F3318B5E-C5B7-4383-AF2A-ACB9FAA96862 - 7a3a3178a5dd1519"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DemoTest.MorpionModel.setCell(n: Swift.Int, c: DemoTest.cell) -&gt; Swift.Bool"
+                  moduleName = "DemoTest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ihababadi/Desktop/formation-swift-combine/di-ioc/global-state/DemoFormationTest/DemoTest/DemoTest/ViewModel/MorpionModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "432">
+               </Location>
+               <Location
+                  uuid = "F3318B5E-C5B7-4383-AF2A-ACB9FAA96862 - 4797a5a3e08696a1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DemoTestTests.MorpionModel.setCell(n: Swift.Int, c: DemoTestTests.cell) -&gt; Swift.Bool"
+                  moduleName = "DemoTestTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ihababadi/Desktop/formation-swift-combine/di-ioc/global-state/DemoFormationTest/DemoTest/DemoTest/ViewModel/MorpionModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "432">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

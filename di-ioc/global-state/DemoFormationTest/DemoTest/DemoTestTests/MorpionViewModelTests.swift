@@ -9,9 +9,9 @@ import XCTest
 @testable import DemoTest
 
 final class MorpionViewModelTests: XCTestCase {
-
+    private var _morpionModel: MorpionModel = MorpionModel()
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        _morpionModel = MorpionModel()
     }
 
     override func tearDownWithError() throws {
@@ -35,18 +35,39 @@ final class MorpionViewModelTests: XCTestCase {
     
     func test_init_cells_should_be_Nine_cells() {
         //Arrange et Act
-        let morpionMdel = MorpionModel()
+        //let morpionMdel = MorpionModel()
         
         //Assert
-        XCTAssertEqual(morpionMdel.grid.count, 9)
+        XCTAssertEqual(_morpionModel.grid.count, 9)
     }
     
     func test_init_cells_should_be_Nine_blank_cells() {
         //Arrange et Act
-        let morpionMdel = MorpionModel()
+        //let morpionMdel = MorpionModel()
         
         //Assert
-        XCTAssertEqual(morpionMdel.grid.filter{$0 == cell.s}.count, 9)
+        XCTAssertEqual(_morpionModel.grid.filter{$0 == cell.s}.count, 9)
+    }
+    
+    func test_set_cell_with_correct_value_should_be_filled_correcty() {
+        //Act
+        _morpionModel.setCell(n: 3, c: .x)
+        
+        XCTAssertEqual(_morpionModel.grid[2], cell.x)
+    }
+    
+    func test_set_cell_with_wrong_value_should_not_be_filled() throws {
+        //Act
+        let result =  _morpionModel.setCell(n: 10, c: .x)
+        XCTAssertFalse(result)
+    }
+    
+    func test_set_cell_with_wrong_same_cell_twice_should_not_be_filled() throws {
+        //Act
+        _morpionModel.setCell(n: 3, c: .x)
+        _morpionModel.setCell(n: 3, c: .o)
+        let result =  _morpionModel.setCell(n: 10, c: .x)
+        XCTAssertFalse(result)
     }
 
 }
