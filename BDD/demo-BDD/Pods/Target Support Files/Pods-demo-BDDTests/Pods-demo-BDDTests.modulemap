@@ -1,0 +1,6 @@
+framework module Pods_demo_BDDTests {
+  umbrella header "Pods-demo-BDDTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
