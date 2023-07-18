@@ -54,6 +54,7 @@ final class ListingCities : QuickSpec {
                     
                     expect(appState.forecasts.count).to(equal(2))
                     
+                    //Assert with cities values
                     
                 }
             }
